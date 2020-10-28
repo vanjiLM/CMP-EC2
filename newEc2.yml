@@ -1,0 +1,13 @@
+- hosts: localhost
+  remote_user: ec2-user
+  become: yes
+  tasks:
+    - name: going to create ec2 instance
+      ec2:
+         key_name: link-mob-key
+         region: "us-east-2c"
+         instance_type: t2.micro
+         image: ami-03657b56516ab7912
+         count: 1
+         vpc_subnet_id: subnet-806416cc
+         assign_public_ip: yes
